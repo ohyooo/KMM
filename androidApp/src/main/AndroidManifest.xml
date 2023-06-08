@@ -7,7 +7,7 @@
         android:label="Kotlin Demo">
 
         <activity
-            android:name=".ui.counter.CounterActivity"
+            android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
