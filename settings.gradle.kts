@@ -18,4 +18,3 @@ rootProject.name = "Kotlin Multiplatform Demo"
 include(":shared")
 include(":androidApp")
 include(":jvmApp")
-include(":native")

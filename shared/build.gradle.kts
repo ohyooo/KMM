@@ -24,23 +24,9 @@ kotlin {
         else -> ::macosX64
     }
     macosTarget("macos") {}
-    jvm {}
-    val hostOs = System.getProperty("os.name")
-    val isMingwX64 = hostOs.startsWith("Windows")
-    val nativeTarget = when {
-        hostOs == "Mac OS X" -> macosX64("native")
-        hostOs == "Linux" -> linuxX64("native")
-        isMingwX64 -> mingwX64("native")
-        else -> throw GradleException("Host OS is not supported in Kotlin/Native.")
-    }
 
-    nativeTarget.apply {
-        binaries {
-            executable {
-                entryPoint = "main"
-            }
-        }
-    }
+    jvm {}
+
     cocoapods {
         summary = "Kotlin Multiplatform Demo Shared Library"
         homepage = "https://github.com/ohyooo"
@@ -65,12 +51,11 @@ kotlin {
         val macosMain by getting
         val macosTest by getting
         val jvmMain by getting
-        val nativeMain by getting
     }
 }
 
 android {
-    namespace = "com.ohyooo.kmm"
+    namespace = "com.ohyooo.kmm.shared"
     buildToolsVersion = Version.BUILD_TOOL_VERSION
     compileSdk = Version.COMPILE_SDK_VERSION
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
