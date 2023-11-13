@@ -11,7 +11,7 @@ repositories {
 
 dependencies {
     implementation(project(":shared"))
-    implementation(Libs.Kotlin.coroutines)
+    implementation(libs.kotlinx.coroutines)
 }
 
 tasks.withType<KotlinCompile> {

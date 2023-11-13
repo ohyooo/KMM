@@ -30,8 +30,8 @@ kotlin {
     cocoapods {
         summary = "Kotlin Multiplatform Demo Shared Library"
         homepage = "https://github.com/ohyooo"
-        ios.deploymentTarget = Version.IOS_DEPLOYMENT_TARGET
-        osx.deploymentTarget = Version.OSX_DEPLOYMENT_TARGET
+        ios.deploymentTarget = "14.1"
+        osx.deploymentTarget = "11.0"
         framework {
             baseName = "shared"
         }
@@ -40,7 +40,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(Libs.Kotlin.coroutines)
+                implementation(libs.kotlinx.coroutines)
             }
         }
 
@@ -56,11 +56,10 @@ kotlin {
 
 android {
     namespace = "com.ohyooo.kmm.shared"
-    buildToolsVersion = Version.BUILD_TOOL_VERSION
-    compileSdk = Version.COMPILE_SDK_VERSION
+    compileSdk = libs.versions.compile.sdk.get().toInt()
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
-        minSdk = Version.MIN_SDK_VERSION
+        minSdk = libs.versions.min.sdk.get().toInt()
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17

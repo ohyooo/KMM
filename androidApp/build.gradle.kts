@@ -4,16 +4,16 @@ plugins {
 }
 
 android {
-    namespace = "com.ohyooo.kmm"
-
-    buildToolsVersion = Version.BUILD_TOOL_VERSION
-    compileSdk = Version.COMPILE_SDK_VERSION
+    namespace = libs.versions.application.id.get()
+    compileSdk = libs.versions.compile.sdk.get().toInt()
     defaultConfig {
-        applicationId = "com.ohyooo.kmm"
-        minSdk = Version.MIN_SDK_VERSION
-        targetSdk = Version.TARGET_SDK_VERSION
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = libs.versions.application.id.get()
+        minSdk = libs.versions.min.sdk.get().toInt()
+        targetSdk = libs.versions.target.sdk.get().toInt()
+        versionCode = libs.versions.version.code.get().toInt()
+        versionName = libs.versions.target.sdk.get()
+        proguardFile("proguard-rules.pro")
+        signingConfig = signingConfigs.getByName("debug")
     }
     buildTypes {
         getByName("release") {
@@ -31,5 +31,5 @@ android {
 
 dependencies {
     implementation(project(":shared"))
-    implementation(Libs.Androidx.activity)
+    implementation(libs.androidx.activity)
 }

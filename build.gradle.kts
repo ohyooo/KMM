@@ -2,8 +2,8 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
-    kotlin("multiplatform") version Libs.KOTLIN_VERSION apply false
-    id("com.android.library") version Libs.AGP_VERSION apply false
+	alias(libs.plugins.kmm) apply false
+    alias(libs.plugins.agp) apply false
 }
 
 allprojects {
