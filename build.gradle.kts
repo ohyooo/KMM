@@ -12,7 +12,7 @@ allprojects {
 }
 
 tasks.register("clean", Delete::class) {
-    delete(rootProject.buildDir)
+    delete(rootProject.layout.buildDirectory)
 }
 
 pluginManager.withPlugin("org.jetbrains.kotlin.multiplatform"){
@@ -20,7 +20,7 @@ pluginManager.withPlugin("org.jetbrains.kotlin.multiplatform"){
         targets.withType<KotlinNativeTarget> {
             compilations.configureEach {
                 compilerOptions.configure {
-                    freeCompilerArgs.addAll(listOf("-Xpartial-linkage=disable", "-opt-in=kotlin.RequiresOptIn", "-Xbackend-threads=12", "-Xcontext-receivers", "-jvm-target=17"))
+                    freeCompilerArgs.addAll(listOf("-Xpartial-linkage=disable", "-opt-in=kotlin.RequiresOptIn", "-Xbackend-threads=12", "-Xcontext-receivers", "-jvm-target=21"))
                 }
             }
         }
