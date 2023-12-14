@@ -1,6 +1,6 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
+    alias(libs.plugins.agp)
+    alias(libs.plugins.kgp)
 }
 
 android {

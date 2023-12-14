@@ -1,9 +1,11 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
-    kotlin("multiplatform")
+    alias(libs.plugins.algp)
+    alias(libs.plugins.ks)
+    alias(libs.plugins.kmm)
     kotlin("native.cocoapods")
-    id("com.android.library")
+    alias(libs.plugins.jc)
     id("maven-publish")
 }
 
