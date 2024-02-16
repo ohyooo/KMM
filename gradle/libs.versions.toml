@@ -19,7 +19,7 @@ jc = { id = "org.jetbrains.compose", version = "1.5.12" }
 
 [libraries]
 # Kotlin
-kotlinx-coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
+kotlinx-coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0"
 
 
 # AndroidX
