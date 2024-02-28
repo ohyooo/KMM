@@ -15,11 +15,11 @@ algp = { id = "com.android.library", version.ref = "agp" }
 kmm = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kgp = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ks = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
-jc = { id = "org.jetbrains.compose", version = "1.5.12" }
+jc = { id = "org.jetbrains.compose", version = "1.6.0" }
 
 [libraries]
 # Kotlin
-kotlinx-coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
+kotlinx-coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0"
 
 
 # AndroidX
