@@ -4,7 +4,7 @@ The demo works on Android, iOS, macOS and JVM (currently Mac & Linux).
 
 ## Requirements
 
-- JDK 17
+- JDK 21
 - Android Studio [Dolphin (2021.3.1)](https://developer.android.com/studio)
 
 # Build and run for iOS

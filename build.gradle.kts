@@ -1,6 +1,20 @@
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+    }
+}
+
+buildscript {
+    repositories {
+        mavenLocal()
+    }
+}
+
 plugins {
     alias(libs.plugins.agp) apply false
     alias(libs.plugins.algp) apply false
@@ -24,7 +38,7 @@ pluginManager.withPlugin("org.jetbrains.kotlin.multiplatform") {
         targets.withType<KotlinNativeTarget> {
             compilations.configureEach {
                 compilerOptions.configure {
-                    freeCompilerArgs.addAll(listOf("-Xpartial-linkage=disable", "-opt-in=kotlin.RequiresOptIn", "-Xbackend-threads=12", "-Xcontext-receivers", "-jvm-target=21"))
+                    freeCompilerArgs.addAll(listOf("-Xpartial-linkage=disable", "-opt-in=kotlin.RequiresOptIn", "-Xbackend-threads=16", "-Xcontext-receivers", "-jvm-target=21"))
                 }
             }
         }

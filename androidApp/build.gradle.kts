@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.agp)
     alias(libs.plugins.kgp)
+    alias(libs.plugins.jc)
 }
 
 android {
@@ -27,9 +28,15 @@ android {
     kotlinOptions {
         jvmTarget = "21"
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+    }
+    compose {
+        kotlinCompilerPlugin.set(libs.compose.compiler.get().toString())
+    }
 }
 
 dependencies {
     implementation(project(":shared"))
-    implementation(libs.androidx.activity)
+    implementation(libs.activity.compose)
 }

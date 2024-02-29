@@ -6,15 +6,6 @@ pluginManagement {
     }
 }
 
-dependencyResolutionManagement {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
 rootProject.name = "Kotlin Multiplatform Demo"
 
-include(":shared")
-include(":androidApp")
-include(":jvmApp")
+include(":shared", ":androidApp", ":jvmApp")

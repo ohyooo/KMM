@@ -68,3 +68,5 @@ android {
         targetCompatibility = JavaVersion.VERSION_21
     }
 }
+
+task("testClasses")
