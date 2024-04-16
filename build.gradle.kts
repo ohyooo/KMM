@@ -38,9 +38,30 @@ pluginManager.withPlugin("org.jetbrains.kotlin.multiplatform") {
         targets.withType<KotlinNativeTarget> {
             compilations.configureEach {
                 compilerOptions.configure {
-                    freeCompilerArgs.addAll(listOf("-Xpartial-linkage=disable", "-opt-in=kotlin.RequiresOptIn", "-Xbackend-threads=16", "-Xcontext-receivers", "-jvm-target=21"))
+                    freeCompilerArgs.addAll(listOf("-Xpartial-linkage=disable", "-opt-in=kotlin.RequiresOptIn", "-Xbackend-threads=8", "-Xcontext-receivers", "-jvm-target=21"))
                 }
             }
+        }
+    }
+}
+
+abstract class GitVersionValueSource : ValueSource<String, ValueSourceParameters.None> {
+    @get:Inject
+    abstract val execOperations: ExecOperations
+
+    override fun obtain(): String {
+        val output = ByteArrayOutputStream()
+        val error = ByteArrayOutputStream()
+        execOperations.exec {
+            commandLine("git rev-parse --short HEAD".split(" "))
+            standardOutput = output
+            errorOutput = error
+        }
+
+        return if (error.toByteArray().isNotEmpty()) {
+            ""
+        } else {
+            "-" + String(output.toByteArray(), Charset.defaultCharset()).trim()
         }
     }
 }
