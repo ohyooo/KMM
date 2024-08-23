@@ -8,7 +8,7 @@ version_name = "2.10"
 compose_compiler = "1.5.15"
 
 agp = "8.5.2"
-kotlin = "2.0.10"
+kotlin = "2.0.20"
 
 [plugins]
 agp = { id = "com.android.application", version.ref = "agp" }
