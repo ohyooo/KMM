@@ -24,7 +24,7 @@ kotlinx-coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0"
 
 
 # AndroidX
-androidx-core-ktx = "androidx.core:core-ktx:1.13.1"
+androidx-core-ktx = "androidx.core:core-ktx:1.15.0"
 androidx-activity = "androidx.activity:activity:1.9.3"
 activity-compose = "androidx.activity:activity-compose:1.9.3"
 compose-compiler = { module = "androidx.compose.compiler:compiler", version.ref = "compose_compiler" }
