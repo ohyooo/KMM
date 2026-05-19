@@ -1,8 +1,8 @@
 [versions]
 application_id = "com.ohyooo.kmm"
-min_sdk = "21"
-target_sdk = "35"
-compile_sdk = "35"
+min_sdk = "23"
+target_sdk = "37
+compile_sdk = "37"
 version_code = "10"
 version_name = "2.10"
 compose_compiler = "1.5.15"
