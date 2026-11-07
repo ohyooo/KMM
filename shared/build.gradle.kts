@@ -58,7 +58,11 @@ kotlin {
 
 android {
     namespace = "com.ohyooo.kmm.shared"
-    compileSdk = libs.versions.compile.sdk.get().toInt()
+    compileSdk {
+        version = release(libs.versions.compile.sdk.get().toInt()) {
+            minorApiLevel = libs.versions.compile.minor.get().toInt()
+        }
+    }
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdk = libs.versions.min.sdk.get().toInt()
